@@ -1183,3 +1183,6 @@ section .container {
 .credits a:hover {
   color: #fff;
 }
+.bullet-clr::marker{
+  color: #18d26e;
+}
