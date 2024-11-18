@@ -1186,3 +1186,79 @@ section .container {
 .bullet-clr::marker{
   color: #18d26e;
 }
+.custom-form {
+  width: 100%; /* Full width */
+  margin: 0; /* Remove automatic centering margins */
+  padding: 20px;
+  background-color: #121212; /* Black background */
+  border-radius: 0; /* Remove rounded corners for a full-width look */
+  box-shadow: none; /* Remove shadow for a flat design */
+  color: #e0e0e0; /* Light text color */
+}
+
+.custom-form .form-group {
+  margin-bottom: 15px;
+}
+
+.custom-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #4caf50; /* Green color */
+}
+
+.custom-form input, .custom-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #4caf50; /* Green border */
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #1e1e1e; /* Darker black input background */
+  color: #e0e0e0; /* Light text color */
+  transition: border-color 0.3s;
+}
+
+.custom-form input:focus, .custom-form textarea:focus {
+  border-color: #81c784; /* Lighter green on focus */
+  outline: none;
+}
+
+.custom-form .submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #4caf50; /* Green background */
+  color: #121212; /* Black text color */
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-form .submit-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+.custom-form .form-status {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.custom-form .form-status p {
+  margin: 5px 0;
+}
+
+.loading-message {
+  color: #81c784; /* Lighter green for loading */
+}
+
+.success-message {
+  color: #66bb6a; /* Success green */
+}
+
+.error-message {
+  color: #e57373; /* Error red */
+}

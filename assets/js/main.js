@@ -1,10 +1,3 @@
-/**
-* Template Name: Personal
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function() {
   "use strict";
 
@@ -55,7 +48,7 @@
   })
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scrool with offset on links with a class name .scrollto
    */
   on('click', '#navbar .nav-link', function(e) {
     let section = select(this.hash)
@@ -185,7 +178,7 @@
   });
 
   /**
-   * Porfolio isotope and filter
+   * Portfolio isotope and filter
    */
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
@@ -251,3 +244,96 @@
   new PureCounter();
 
 })()
+
+// document.querySelector('form').addEventListener('submit', (e) => {
+//   e.preventDefault();
+
+//   // Here, prevent displaying the server response or message
+//   alert('Your message has been sent!');
+// });
+
+
+document.querySelector('form').addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent form submission
+
+  const form = e.target;
+  const loadingMessage = document.querySelector('.php-email-form .loading');
+  const successMessage = document.querySelector('.php-email-form .sent-message');
+  const errorMessage = document.querySelector('.php-email-form .error-message');
+
+  // Show loading indicator while sending the message
+  if (loadingMessage) {
+    loadingMessage.style.display = 'block';
+  }
+
+  // Clear previous success/error messages
+  if (successMessage) {
+    successMessage.style.display = 'none';
+  }
+
+  if (errorMessage) {
+    errorMessage.style.display = 'none';
+  }
+
+  // Simulating form submission success or failure
+  setTimeout(() => {
+    // Assuming the form submission is successful
+    const response = { success: true };
+
+    // Hide loading indicator
+    if (loadingMessage) {
+      loadingMessage.style.display = 'none';
+    }
+
+    // Show success message
+    if (response.success) {
+      if (successMessage) {
+        successMessage.style.display = 'block';
+      }
+
+      // Clear the form fields after successful submission (optional)
+      form.reset();
+    } else {
+      // If there's an error, display an error message (optional)
+      if (errorMessage) {
+        errorMessage.style.display = 'block';
+      }
+    }
+  }, 2000); // Simulate a delay for form submission (e.g., 2 seconds)
+});
+
+
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevent default form submission
+  
+  const loadingMessage = document.querySelector('.loading-message');
+  const successMessage = document.querySelector('.success-message');
+  const errorMessage = document.querySelector('.error-message');
+  
+  // Show loading message
+  loadingMessage.style.display = 'block';
+  successMessage.style.display = 'none';
+  errorMessage.style.display = 'none';
+  
+  const formData = new FormData(this);
+  
+  // Send form data using Fetch API
+  fetch(this.action, {
+    method: this.method,
+    body: formData,
+  })
+    .then(response => {
+      if (response.ok) {
+        loadingMessage.style.display = 'none';
+        successMessage.style.display = 'block';
+        this.reset(); // Reset the form
+      } else {
+        throw new Error('Submission failed');
+      }
+    })
+    .catch(error => {
+      loadingMessage.style.display = 'none';
+      errorMessage.style.display = 'block';
+      console.error('Error:', error);
+    });
+});
